@@ -20,6 +20,10 @@ import org.springframework.web.bind.annotation.*;
 public class ApiIntegrationController {
     @Autowired
     private ApiIntegrationService apiIntegrationService;
+    @GetMapping("/")
+    public ResponseEntity<String> health() {
+        return ResponseEntity.ok("OK");
+    }
 
     @GetMapping("/classify")
     public ResponseEntity<ApiResponse<GenderResponse>>  genderize(@NotBlank(message = "Missing or empty name parameter")  @RequestParam String name){
