@@ -5,11 +5,11 @@ import lombok.Data;
 
 @Data
 public class ApiResponse<T> {
-    private ApiResponseStatus status;
+    private String status;
     private T data;
 
     public ApiResponse(ApiResponseStatus status, T data) {
-        this.status = status;
+        this.status = status.toString().toLowerCase();
         this.data = data;
     }
 }
